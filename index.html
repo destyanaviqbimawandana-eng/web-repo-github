@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Web Lembaga | Solusi Terpercaya</title>
+    <!-- Bootstrap 5 CSS + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f4f7fc;
+            overflow-x: hidden;
+        }
+
+        /* ======================= ANIMASI KUSTOM ======================= */
+        
+        /* Animasi Fade In Up */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Animasi Fade In Left */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Animasi Fade In Right */
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Animasi Zoom In */
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Animasi Pulse (Berdenyut) */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Animasi Shine (Kilauan) */
+        @keyframes shine {
+            0% {
+                background-position: -100%;
+            }
+            100% {
+                background-position: 200%;
+            }
+        }
+        
+        /* Animasi Float (Mengambang) */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Animasi Rotate (Berputar) */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Class untuk animasi */
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .animate-fadeInLeft {
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+        
+        .animate-fadeInRight {
+            animation: fadeInRight 0.8s ease forwards;
+        }
+        
+        .animate-zoomIn {
+            animation: zoomIn 0.6s ease forwards;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Delay animasi */
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* Navbar styling */
+        .navbar {
+            background: white !important;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.7rem;
+            letter-spacing: -0.5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.02);
+        }
+
+        .brand-icon {
+            background: linear-gradient(135deg, #0d6efd, #0a58ca);
+            padding: 6px 12px;
+            border-radius: 14px;
+            color: white;
+            margin-right: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .navbar-brand:hover .brand-icon {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Navbar menu items */
+        .nav-link {
+            font-weight: 500;
+            color: #1f2a3e;
+            transition: all 0.3s ease;
+            margin: 0 4px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        /* Efek underline pada nav-link */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #0d6efd;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-link:hover {
+            background: #e9ecef;
+            color: #0d6efd;
+            transform: translateY(-2px);
+        }
+
+        .nav-link i {
+            margin-right: 6px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Dropdown styling */
+        .dropdown-item {
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: #e9ecef;
+            color: #0d6efd;
+            transform: translateX(5px);
+        }
+
+        .dropdown-item i {
+            margin-right: 8px;
+            width: 20px;
+            transition: transform 0.2s ease;
+        }
+        
+        .dropdown-item:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Language selector */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 15px;
+            padding: 5px 10px;
+            border-radius: 30px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector:hover {
+            background: #e9ecef;
+            transform: scale(1.02);
+        }
+
+        .lang-option {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .lang-option:hover {
+            background: #dee2e6;
+            transform: scale(1.05);
+        }
+
+        .lang-option.active {
+            background: #0d6efd;
+            color: white;
+        }
+
+        /* Logout button */
+        .logout-btn {
+            background: none;
+            border: none;
+            color: #dc3545;
+        }
+
+        .logout-btn:hover {
+            background: #dc3545;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero section */
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            border-radius: 24px;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+        }
+
+        /* Overlay gelap */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55);
+            border-radius: 24px;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-title {
+            font-size: 3.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInLeft 0.8s ease 0.4s backwards;
+        }
+
+        /* Search container */
+        .search-container {
+            max-width: 680px;
+            margin: 1.5rem auto 0 auto;
+            animation: fadeInRight 0.8s ease 0.6s backwards;
+        }
+
+        .search-wrapper {
+            display: flex;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-radius: 60px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .search-wrapper:focus-within {
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.15);
+            border-color: #0d6efd;
+            transform: scale(1.01);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 14px 20px;
+            background: transparent;
+        }
+
+        .search-btn {
+            background: #0d6efd;
+            border: none;
+            border-radius: 0;
+            padding: 0 28px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .search-btn:hover {
+            background: #0b5ed7;
+            transform: scale(1.02);
+        }
+
+        /* Card halaman */
+        .page-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            margin: 1rem 0 2rem 0;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-phone-card {
+            background: #eef4ff;
+            border-left: 5px solid #0d6efd;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-phone-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .footer-mini {
+            background: #eef2f5;
+            padding: 1.2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4a627a;
+            margin-top: 2rem;
+        }
+
+        .login-status-badge {
+            background: #19875420;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #198754;
+            margin-left: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .login-status-badge:hover {
+            transform: scale(1.05);
+            background: #19875440;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2.3rem;
+            }
+            .hero-section {
+                min-height: 70vh;
+            }
+            .search-btn span {
+                display: none;
+            }
+            .search-btn {
+                padding: 0 20px;
+            }
+            .language-selector {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        .search-result-highlight {
+            background: #fff3cd;
+            padding: 12px;
+            border-radius: 20px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            animation: fadeInUp 0.4s ease forwards;
+        }
+
+        /* Profil page card khusus */
+        .profile-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 32px;
+            padding: 2rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .profile-card h2, .profile-card h3 {
+            color: white;
+        }
+
+        .profile-card hr {
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        /* Badge animasi */
+        .badge {
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Loading Screen (ditambahkan) */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeOut 0.8s ease-out 2s forwards;
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 6px solid rgba(255,255,255,0.3);
+            border-top: 6px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 18px;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Efek ripple untuk tombol */
+        .btn-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-ripple::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-ripple:active::after {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader-wrapper" id="loaderWrapper">
+    <div class="loader"></div>
+    <div class="loading-text">Memuat Website...</div>
+</div>
+
+<!-- NAVBAR dengan logo di kiri dan menu di kanan -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm py-2 sticky-top" id="mainNavbar">
+    <div class="container">
+        <!-- Logo / Nama Lembaga di KIRI -->
+        <a class="navbar-brand" id="logoHomeLink" style="cursor: pointer;">
+            <span class="brand-icon"><i class="bi bi-building"></i></span> 
+            <span id="institutionName">LembagaKita</span>
+        </a>
+        
+        <!-- Tombol toggle untuk mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Menu Navigasi di KANAN -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <!-- Beranda -->
+                <li class="nav-item">
+                    <a class="nav-link" id="navHomeLink" style="cursor: pointer;">
+                        <i class="bi bi-house-door"></i> <span id="menuHome">Beranda</span>
+                    </a>
+                </li>
+                
+                <!-- Profil dengan Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-badge"></i> <span id="menuProfile">Profil</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+                        <li><a class="dropdown-item" id="sejarahLink"><i class="bi bi-clock-history"></i> <span id="menuHistory">Sejarah Lembaga</span></a></li>
+                        <li><a class="dropdown-item" id="visiMisiLink"><i class="bi bi-eye"></i> <span id="menuVision">Visi & Misi</span></a></li>
+                        <li><a class="dropdown-item" id="strukturLink"><i class="bi bi-diagram-3"></i> <span id="menuStructure">Struktur Organisasi</span></a></li>
+                    </ul>
+                </li>
+                
+                <!-- Customer Service -->
+                <li class="nav-item">
+                    <a class="nav-link" id="navCsLink" style="cursor: pointer;">
+                        <i class="bi bi-headset"></i> <span id="menuCs">Customer Service</span>
+                    </a>
+                </li>
+                
+                <!-- Tentang Kami -->
+                <li class="nav-item">
+                    <a class="nav-link" id="navAboutLink" style="cursor: pointer;">
+                        <i class="bi bi-info-circle"></i> <span id="menuAbout">Tentang Kami</span>
+                    </a>
+                </li>
+                
+                <!-- Login / User / Logout -->
+                <li class="nav-item" id="loginNavItem">
+                    <a class="nav-link" id="navLoginLink" style="cursor: pointer;">
+                        <i class="bi bi-box-arrow-in-right"></i> <span id="loginText">Login</span>
+                    </a>
+                </li>
+                
+                <!-- Tombol Logout (hidden by default) -->
+                <li class="nav-item" id="logoutNavItem" style="display: none;">
+                    <a class="nav-link logout-btn" id="navLogoutLink" style="cursor: pointer;">
+                        <i class="bi bi-box-arrow-right"></i> <span id="logoutText">Logout</span>
+                    </a>
+                </li>
+                
+                <!-- Pilihan Bahasa -->
+                <li class="nav-item">
+                    <div class="language-selector">
+                        <span class="lang-option" id="langId" data-lang="id">🇮🇩 ID</span>
+                        <span class="lang-option" id="langEn" data-lang="en">🇬🇧 EN</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main id="mainContentArea" class="container my-4">
+    <!-- Konten akan diisi JavaScript -->
+</main>
+
+<div class="footer-mini">
+    <i class="bi bi-envelope-fill"></i> <span id="footerEmail">Layanan 24 Jam: help@lembagakita.id</span> | <i class="bi bi-telephone-fill"></i> <span id="footerPhone">(021) 1234-5678</span>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // ======================= EFEK SCROLL NAVBAR =======================
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 50) {
+                $('#mainNavbar').addClass('scrolled');
+            } else {
+                $('#mainNavbar').removeClass('scrolled');
+            }
+        });
+        
+        // Sembunyikan loading screen setelah 2 detik
+        setTimeout(function() {
+            $('#loaderWrapper').fadeOut(500);
+        }, 2000);
+        
+        // State login
+        let isLoggedIn = false;
+        let currentUser = { username: "", email: "" };
+        
+        // State bahasa (default: Indonesia)
+        let currentLang = localStorage.getItem("selectedLanguage") || "id";
+        
+        // DOM elements
+        const $mainArea = $("#mainContentArea");
+        const $loginText = $("#loginText");
+        const $loginNavItem = $("#loginNavItem");
+        const $logoutNavItem = $("#logoutNavItem");
+        
+        // Elemen navigasi navbar
+        const $navHomeLink = $("#navHomeLink");
+        const $navCsLink = $("#navCsLink");
+        const $navAboutLink = $("#navAboutLink");
+        const $navLoginLink = $("#navLoginLink");
+        const $navLogoutLink = $("#navLogoutLink");
+        const $logoHomeLink = $("#logoHomeLink");
+        
+        // Elemen dropdown profil
+        const $sejarahLink = $("#sejarahLink");
+        const $visiMisiLink = $("#visiMisiLink");
+        const $strukturLink = $("#strukturLink");
+        
+        // Elemen bahasa
+        const $langId = $("#langId");
+        const $langEn = $("#langEn");
+        
+        // ======================= DATA BAHASA =======================
+        const translations = {
+            id: {
+                institutionName: "LembagaKita",
+                menuHome: "Beranda",
+                menuProfile: "Profil",
+                menuHistory: "Sejarah Lembaga",
+                menuVision: "Visi & Misi",
+                menuStructure: "Struktur Organisasi",
+                menuCs: "Customer Service",
+                menuAbout: "Tentang Kami",
+                loginText: "Login",
+                logoutText: "Logout",
+                loginLoggedIn: "Online",
+                footerEmail: "Layanan 24 Jam: help@lembagakita.id",
+                footerPhone: "(021) 1234-5678",
+                welcomeTitle: "Selamat Datang di Web Lembaga",
+                searchPlaceholder: "Cari informasi, layanan, atau bantuan...",
+                searchBtn: "Cari",
+                announcementTitle: "Pengumuman Lembaga",
+                announcementText: "Selamat datang di portal resmi LembagaKita. Kami menyediakan layanan pendidikan, pelatihan, dan konsultasi profesional. Silakan login untuk mengakses layanan premium.",
+                accredited: "Terakreditasi A",
+                alumni: "10.000+ Alumni",
+                rating: "4.9 Rating",
+                searchEmpty: "Masukkan kata kunci pencarian.",
+                searchResult: "Hasil pencarian untuk",
+                searchResultText: "Kami menemukan layanan yang relevan. Hubungi Customer Service untuk info lebih lanjut.",
+                loginTitle: "Login Akun",
+                loginSubtitle: "Masuk ke dashboard lembaga",
+                username: "Username",
+                email: "Email",
+                password: "Password",
+                loginBtn: "Masuk",
+                loginError: "Login gagal! Gunakan user: admin, email: admin@lembaga.id, pw: 123456",
+                loginDemo: "Demo: admin / admin@lembaga.id / 123456",
+                loginSuccess: "Selamat datang",
+                loginSuccessText: "Anda berhasil login.",
+                logoutSuccess: "Anda telah logout.",
+                csTitle: "Layanan Pelanggan & Bantuan",
+                csSubtitle: "Kami siap membantu Anda 24/7",
+                csHotline: "Hotline & Bantuan Teknis",
+                csEmail: "Email",
+                csHours: "Jam Operasional",
+                csHoursValue: "Senin - Sabtu, 08.00 - 16.30 WIB",
+                csInfo: "Jika terjadi masalah teknis atau kendala layanan, segera hubungi nomor di atas.",
+                csEmergency: "Nomor Darurat Layanan",
+                csLiveChat: "Live Chat",
+                csLiveChatText: "Tersedia di pojok kanan bawah",
+                csHelpCenter: "Pusat Bantuan",
+                csHelpText: "Panduan penggunaan web, reset password, dan FAQ.",
+                aboutTitle: "Tentang Web Lembaga",
+                aboutSubtitle: "Mengenal lebih dekat LembagaKita",
+                aboutText1: "LembagaKita adalah platform resmi yang didirikan pada tahun 2020 untuk memberikan akses informasi, layanan pendidikan, pelatihan profesional, serta konsultasi kelembagaan.",
+                aboutText2: "Visi kami menciptakan ekosistem pembelajaran dan pemberdayaan yang modern, inklusif, dan berkelanjutan. Dengan dukungan teknologi terkini, kami menyediakan informasi secara transparan serta customer service responsif.",
+                aboutMission: "Misi Kami",
+                aboutMissionText: "Meningkatkan kualitas SDM melalui pelatihan dan pendampingan.",
+                aboutIntegrity: "Integritas",
+                aboutIntegrityText: "Berpegang pada nilai kejujuran dan profesionalisme.",
+                aboutReach: "Jangkauan",
+                aboutReachText: "Melayani masyarakat seluruh Indonesia secara online.",
+                aboutVersion: "Web Lembaga versi 3.0 | Bootstrap 5 + jQuery",
+                sejarahTitle: "Sejarah Lembaga",
+                sejarahText1: "LembagaKita didirikan pada tanggal 17 Agustus 2020 oleh sekelompok profesional yang peduli terhadap pendidikan dan pengembangan sumber daya manusia di Indonesia.",
+                sejarahText2: "Awalnya berupa komunitas kecil yang fokus pada pelatihan kepemimpinan, seiring waktu berkembang menjadi lembaga yang melayani ribuan peserta dari berbagai daerah.",
+                sejarahText3: "Tahun 2022, LembagaKita resmi mendapatkan akreditasi A dari Kementerian Pendidikan dan Kebudayaan. Hingga saat ini, kami telah melahirkan lebih dari 10.000 alumni yang tersebar di seluruh Indonesia.",
+                sejarahAward: "Penghargaan: Lembaga Pendidikan Terbaik 2023 & 2024",
+                visiTitle: "Visi",
+                misiTitle: "Misi",
+                visiText: "Menjadi lembaga pendidikan dan pelatihan terkemuka di Asia Tenggara yang melahirkan pemimpin masa depan berintegritas tinggi pada tahun 2030",
+                misi1: "Menyelenggarakan program pendidikan berkualitas yang sesuai dengan kebutuhan industri",
+                misi2: "Mengembangkan kurikulum inovatif berbasis teknologi terkini",
+                misi3: "Membangun jaringan kerjasama dengan berbagai institusi nasional dan internasional",
+                misi4: "Menciptakan lingkungan belajar yang inklusif dan mendukung pengembangan karakter",
+                strukturTitle: "Struktur Organisasi",
+                strukturSubtitle: "Kepengurusan LembagaKita periode 2024-2028",
+                kepalaLembaga: "Kepala Lembaga",
+                wakilAkademik: "Wakil Kepala Bidang Akademik",
+                wakilKemahasiswaan: "Wakil Kepala Bidang Kemahasiswaan",
+                kepalaKurikulum: "Kepala Divisi Kurikulum",
+                kepalaHrd: "Kepala Divisi HRD",
+                kepalaKeuangan: "Kepala Divisi Keuangan"
+            },
+            en: {
+                institutionName: "LembagaKita",
+                menuHome: "Home",
+                menuProfile: "Profile",
+                menuHistory: "Institution History",
+                menuVision: "Vision & Mission",
+                menuStructure: "Organizational Structure",
+                menuCs: "Customer Service",
+                menuAbout: "About Us",
+                loginText: "Login",
+                logoutText: "Logout",
+                loginLoggedIn: "Online",
+                footerEmail: "24 Hour Service: help@lembagakita.id",
+                footerPhone: "(021) 1234-5678",
+                welcomeTitle: "Welcome to Lembaga Website",
+                searchPlaceholder: "Search information, services, or help...",
+                searchBtn: "Search",
+                announcementTitle: "Announcement",
+                announcementText: "Welcome to the official portal of LembagaKita. We provide educational services, training, and professional consultation. Please login to access premium services.",
+                accredited: "Accredited A",
+                alumni: "10,000+ Alumni",
+                rating: "4.9 Rating",
+                searchEmpty: "Please enter a search keyword.",
+                searchResult: "Search results for",
+                searchResultText: "We found relevant services. Contact Customer Service for more information.",
+                loginTitle: "Login Account",
+                loginSubtitle: "Login to institution dashboard",
+                username: "Username",
+                email: "Email",
+                password: "Password",
+                loginBtn: "Login",
+                loginError: "Login failed! Use: admin / admin@lembaga.id / 123456",
+                loginDemo: "Demo: admin / admin@lembaga.id / 123456",
+                loginSuccess: "Welcome",
+                loginSuccessText: "You have successfully logged in.",
+                logoutSuccess: "You have been logged out.",
+                csTitle: "Customer Service & Support",
+                csSubtitle: "We are ready to help you 24/7",
+                csHotline: "Hotline & Technical Support",
+                csEmail: "Email",
+                csHours: "Operating Hours",
+                csHoursValue: "Monday - Saturday, 08.00 - 16.30 WIB",
+                csInfo: "If you experience technical issues or service problems, please contact the number above.",
+                csEmergency: "Emergency Service Number",
+                csLiveChat: "Live Chat",
+                csLiveChatText: "Available at the bottom right corner",
+                csHelpCenter: "Help Center",
+                csHelpText: "Web usage guide, password reset, and FAQ.",
+                aboutTitle: "About This Website",
+                aboutSubtitle: "Get to know LembagaKita better",
+                aboutText1: "LembagaKita is an official platform established in 2020 to provide access to information, educational services, professional training, and institutional consultation.",
+                aboutText2: "Our vision is to create a modern, inclusive, and sustainable learning and empowerment ecosystem. With the latest technology support, we provide transparent information and responsive customer service.",
+                aboutMission: "Our Mission",
+                aboutMissionText: "Improving human resource quality through training and mentoring.",
+                aboutIntegrity: "Integrity",
+                aboutIntegrityText: "Adhering to honesty and professionalism.",
+                aboutReach: "Reach",
+                aboutReachText: "Serving communities throughout Indonesia online.",
+                aboutVersion: "Lembaga Website version 3.0 | Built with Bootstrap 5 + jQuery",
+                sejarahTitle: "Institution History",
+                sejarahText1: "LembagaKita was founded on August 17, 2020 by a group of professionals concerned about education and human resource development in Indonesia.",
+                sejarahText2: "Initially a small community focused on leadership training, it has grown into an institution serving thousands of participants from various regions.",
+                sejarahText3: "In 2022, LembagaKita officially received A accreditation from the Ministry of Education and Culture. To date, we have produced more than 10,000 alumni spread throughout Indonesia.",
+                sejarahAward: "Awards: Best Educational Institution 2023 & 2024",
+                visiTitle: "Vision",
+                misiTitle: "Mission",
+                visiText: "To become a leading educational and training institution in Southeast Asia that produces future leaders with high integrity by 2030",
+                misi1: "Organizing quality educational programs that suit industry needs",
+                misi2: "Developing innovative curricula based on the latest technology",
+                misi3: "Building cooperation networks with various national and international institutions",
+                misi4: "Creating an inclusive learning environment that supports character development",
+                strukturTitle: "Organizational Structure",
+                strukturSubtitle: "LembagaKita Management Period 2024-2028",
+                kepalaLembaga: "Head of Institution",
+                wakilAkademik: "Vice Head of Academic Affairs",
+                wakilKemahasiswaan: "Vice Head of Student Affairs",
+                kepalaKurikulum: "Head of Curriculum Division",
+                kepalaHrd: "Head of HR Division",
+                kepalaKeuangan: "Head of Finance Division"
+            }
+        };
+        
+        // Fungsi untuk mengupdate teks berdasarkan bahasa
+        function updateLanguage() {
+            const t = translations[currentLang];
+            
+            $("#institutionName").text(t.institutionName);
+            $("#menuHome").text(t.menuHome);
+            $("#menuProfile").text(t.menuProfile);
+            $("#menuHistory").text(t.menuHistory);
+            $("#menuVision").text(t.menuVision);
+            $("#menuStructure").text(t.menuStructure);
+            $("#menuCs").text(t.menuCs);
+            $("#menuAbout").text(t.menuAbout);
+            $("#logoutText").text(t.logoutText);
+            
+            if (!isLoggedIn) {
+                $("#loginText").text(t.loginText);
+            } else {
+                $("#loginText").html(`<i class="bi bi-person-circle"></i> ${currentUser.username} <span class="login-status-badge">${t.loginLoggedIn}</span>`);
+            }
+            
+            $("#footerEmail").text(t.footerEmail);
+            $("#footerPhone").text(t.footerPhone);
+            
+            if (currentLang === "id") {
+                $langId.addClass("active");
+                $langEn.removeClass("active");
+            } else {
+                $langEn.addClass("active");
+                $langId.removeClass("active");
+            }
+            
+            localStorage.setItem("selectedLanguage", currentLang);
+            
+            let currentPage = $mainArea.data("currentPage") || "home";
+            switch(currentPage) {
+                case "home": renderHomePage(); break;
+                case "login": renderLoginPage(); break;
+                case "cs": renderCustomerService(); break;
+                case "about": renderAboutPage(); break;
+                case "sejarah": renderSejarahPage(); break;
+                case "visimisi": renderVisiMisiPage(); break;
+                case "struktur": renderStrukturPage(); break;
+                default: renderHomePage();
+            }
+        }
+        
+        // ======================= RENDER HALAMAN =======================
+        function renderHomePage() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="hero-section">
+                    <div class="container">
+                        <div class="welcome-title animate-float">
+                            ${t.welcomeTitle}
+                        </div>
+                        <div class="search-container">
+                            <div class="search-wrapper">
+                                <input type="text" id="globalSearchInput" class="search-input" placeholder="${t.searchPlaceholder}">
+                                <button id="globalSearchBtn" class="search-btn btn-ripple"><i class="bi bi-search"></i> <span>${t.searchBtn}</span></button>
+                            </div>
+                            <div id="searchResultInfo" class="mt-3 text-start"></div>
+                        </div>
+                        <div class="row mt-5 justify-content-center">
+                            <div class="col-md-8">
+                                <div class="page-card text-start">
+                                    <h4><i class="bi bi-megaphone-fill text-primary animate-pulse"></i> ${t.announcementTitle}</h4>
+                                    <p>${t.announcementText}</p>
+                                    <hr>
+                                    <div class="d-flex gap-3 flex-wrap">
+                                        <span class="badge bg-light text-dark p-2"><i class="bi bi-check-circle-fill text-success"></i> ${t.accredited}</span>
+                                        <span class="badge bg-light text-dark p-2"><i class="bi bi-people-fill"></i> ${t.alumni}</span>
+                                        <span class="badge bg-light text-dark p-2"><i class="bi bi-star-fill text-warning"></i> ${t.rating}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $mainArea.html(html);
+            
+            $("#globalSearchBtn").on("click", function() {
+                let query = $("#globalSearchInput").val().trim();
+                if (query === "") {
+                    $("#searchResultInfo").html(`<div class="search-result-highlight"><i class="bi bi-exclamation-triangle-fill text-warning"></i> ${t.searchEmpty}</div>`);
+                } else {
+                    $("#searchResultInfo").html(`
+                        <div class="search-result-highlight">
+                            <i class="bi bi-search-heart-fill text-primary"></i> 
+                            <strong>${t.searchResult} "${query}":</strong><br>
+                            • ${t.searchResultText}<br>
+                            • Dokumentasi dan artikel tersedia di menu <strong>Customer Service</strong>.
+                        </div>
+                    `);
+                }
+            });
+            
+            $("#globalSearchInput").on("keypress", function(e) {
+                if (e.which === 13) $("#globalSearchBtn").click();
+            });
+            
+            $mainArea.data("currentPage", "home");
+        }
+        
+        function renderLoginPage() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="page-card animate-zoomIn">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-person-circle fs-1 text-primary animate-float"></i>
+                                <h3 class="mt-2">${t.loginTitle}</h3>
+                                <p class="text-muted">${t.loginSubtitle}</p>
+                            </div>
+                            <form id="loginFormPage">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">${t.username}</label>
+                                    <input type="text" class="form-control form-control-lg" id="loginUsernamePage" placeholder="admin" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">${t.email}</label>
+                                    <input type="email" class="form-control form-control-lg" id="loginEmailPage" placeholder="admin@lembaga.id" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold">${t.password}</label>
+                                    <input type="password" class="form-control form-control-lg" id="loginPasswordPage" placeholder="••••••" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill btn-ripple"><i class="bi bi-box-arrow-in-right"></i> ${t.loginBtn}</button>
+                                <div id="loginErrorPage" class="alert alert-danger mt-3 d-none">${t.loginError}</div>
+                            </form>
+                            <div class="mt-4 text-center small text-secondary border-top pt-3">
+                                ${t.loginDemo}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $mainArea.html(html);
+            $mainArea.data("currentPage", "login");
+            
+            $("#loginFormPage").on("submit", function(e) {
+                e.preventDefault();
+                let username = $("#loginUsernamePage").val().trim();
+                let email = $("#loginEmailPage").val().trim();
+                let password = $("#loginPasswordPage").val().trim();
+                
+                if (username === "admin" && email === "admin@lembaga.id" && password === "123456") {
+                    isLoggedIn = true;
+                    currentUser = { username: username, email: email };
+                    sessionStorage.setItem("lembagaLogged", JSON.stringify({ isLoggedIn: true, username, email }));
+                    $("#loginErrorPage").addClass("d-none");
+                    updateUIBasedOnLogin();
+                    renderHomePage();
+                    alert(`${t.loginSuccess} ${username}, ${t.loginSuccessText}`);
+                } else {
+                    $("#loginErrorPage").removeClass("d-none");
+                }
+            });
+        }
+        
+        function renderCustomerService() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="page-card animate-fadeInUp">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <i class="bi bi-headset fs-1 text-primary animate-float"></i>
+                        <div>
+                            <h2 class="mb-0">${t.csTitle}</h2>
+                            <p class="text-muted">${t.csSubtitle}</p>
+                        </div>
+                    </div>
+                    <div class="contact-phone-card p-4 rounded-4 mb-4">
+                        <h5><i class="bi bi-telephone-forward-fill"></i> ${t.csHotline}</h5>
+                        <p class="fs-3 fw-bold mt-2"><i class="bi bi-whatsapp animate-pulse"></i> +62 812-3456-7890</p>
+                        <p><i class="bi bi-envelope-paper"></i> <strong>${t.csEmail}:</strong> cs@lembagakita.id | support@lembagakita.id</p>
+                        <p><i class="bi bi-clock-history"></i> <strong>${t.csHours}:</strong> ${t.csHoursValue}</p>
+                        <div class="alert alert-info mt-3">
+                            <i class="bi bi-info-circle-fill"></i> ${t.csInfo}
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 bg-light">
+                                <i class="bi bi-telephone-x fs-5 text-danger"></i> 
+                                <strong>${t.csEmergency}:</strong> (021) 1500-123
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 bg-light">
+                                <i class="bi bi-chat-dots fs-5 text-primary"></i> 
+                                <strong>${t.csLiveChat}:</strong> ${t.csLiveChatText}
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <div class="p-3 rounded-3" style="background: #f0f4f9;">
+                                <i class="bi bi-question-circle-fill"></i> <strong>${t.csHelpCenter}:</strong> ${t.csHelpText}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $mainArea.html(html);
+            $mainArea.data("currentPage", "cs");
+        }
+        
+        function renderAboutPage() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="page-card animate-fadeInUp">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-building fs-1 text-primary animate-float"></i>
+                        <h2 class="mt-2">${t.aboutTitle}</h2>
+                        <p class="text-muted">${t.aboutSubtitle}</p>
+                    </div>
+                    <p>${t.aboutText1}</p>
+                    <p>${t.aboutText2}</p>
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="bg-light rounded-4 p-3 text-center animate-fadeInUp delay-1">
+                                <i class="bi bi-star-fill text-warning fs-2"></i>
+                                <h5>${t.aboutMission}</h5>
+                                <small>${t.aboutMissionText}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="bg-light rounded-4 p-3 text-center animate-fadeInUp delay-2">
+                                <i class="bi bi-shield-check text-success fs-2"></i>
+                                <h5>${t.aboutIntegrity}</h5>
+                                <small>${t.aboutIntegrityText}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="bg-light rounded-4 p-3 text-center animate-fadeInUp delay-3">
+                                <i class="bi bi-globe2 text-info fs-2"></i>
+                                <h5>${t.aboutReach}</h5>
+                                <small>${t.aboutReachText}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="mb-0"><i class="bi bi-code-slash"></i> ${t.aboutVersion}</p>
+                </div>
+            `;
+            $mainArea.html(html);
+            $mainArea.data("currentPage", "about");
+        }
+        
+        function renderSejarahPage() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="profile-card animate-zoomIn">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-clock-history fs-1 animate-float"></i>
+                        <h2 class="mt-2">${t.sejarahTitle}</h2>
+                    </div>
+                    <p>${t.sejarahText1}</p>
+                    <p>${t.sejarahText2}</p>
+                    <p>${t.sejarahText3}</p>
+                    <hr style="background: rgba(255,255,255,0.3);">
+                    <p class="mb-0"><i class="bi bi-trophy"></i> ${t.sejarahAward}</p>
+                </div>
+            `;
+            $mainArea.html(html);
+            $mainArea.data("currentPage", "sejarah");
+        }
+        
+        function renderVisiMisiPage() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="page-card h-100 animate-fadeInLeft">
+                            <div class="text-center mb-3">
+                                <i class="bi bi-eye fs-1 text-primary animate-float"></i>
+                                <h2 class="mt-2">${t.visiTitle}</h2>
+                            </div>
+                            <p class="text-center fs-5">"${t.visiText}"</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="page-card h-100 animate-fadeInRight">
+                            <div class="text-center mb-3">
+                                <i class="bi bi-bullseye fs-1 text-primary animate-float"></i>
+                                <h2 class="mt-2">${t.misiTitle}</h2>
+                            </div>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> ${t.misi1}</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> ${t.misi2}</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> ${t.misi3}</li>
+                                <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i> ${t.misi4}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $mainArea.html(html);
+            $mainArea.data("currentPage", "visimisi");
+        }
+        
+        function renderStrukturPage() {
+            const t = translations[currentLang];
+            let html = `
+                <div class="page-card animate-fadeInUp">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-diagram-3 fs-1 text-primary animate-float"></i>
+                        <h2 class="mt-2">${t.strukturTitle}</h2>
+                        <p class="text-muted">${t.strukturSubtitle}</p>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-12 mb-4">
+                            <div class="bg-light rounded-4 p-3 animate-zoomIn">
+                                <i class="bi bi-person-circle fs-1 text-primary"></i>
+                                <h4>${t.kepalaLembaga}</h4>
+                                <p class="mb-0"><strong>Dr. Ahmad Santoso, M.Pd.</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="bg-light rounded-4 p-3 animate-fadeInLeft delay-1">
+                                <i class="bi bi-people fs-1 text-primary"></i>
+                                <h5>${t.wakilAkademik}</h5>
+                                <p class="mb-0"><strong>Prof. Dewi Lestari, S.Si., M.Si.</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="bg-light rounded-4 p-3 animate-fadeInRight delay-1">
+                                <i class="bi bi-briefcase fs-1 text-primary"></i>
+                                <h5>${t.wakilKemahasiswaan}</h5>
+                                <p class="mb-0"><strong>Dr. Budi Wijaya, S.E., M.M.</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="bg-light rounded-4 p-3 animate-fadeInUp delay-2">
+                                <i class="bi bi-file-text fs-1 text-primary"></i>
+                                <h6>${t.kepalaKurikulum}</h6>
+                                <p class="mb-0"><small>Rina Kurnia, S.Pd., M.Pd.</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="bg-light rounded-4 p-3 animate-fadeInUp delay-3">
+                                <i class="bi bi-people-fill fs-1 text-primary"></i>
+                                <h6>${t.kepalaHrd}</h6>
+                                <p class="mb-0"><small>Andi Pratama, S.Psi.</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="bg-light rounded-4 p-3 animate-fadeInUp delay-4">
+                                <i class="bi bi-cash-stack fs-1 text-primary"></i>
+                                <h6>${t.kepalaKeuangan}</h6>
+                                <p class="mb-0"><small>Sarah Fitriani, S.E.</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $mainArea.html(html);
+            $mainArea.data("currentPage", "struktur");
+        }
+        
+        function logoutUser() {
+            const t = translations[currentLang];
+            isLoggedIn = false;
+            currentUser = { username: "", email: "" };
+            sessionStorage.removeItem("lembagaLogged");
+            updateUIBasedOnLogin();
+            renderHomePage();
+            alert(t.logoutSuccess);
+        }
+        
+        function updateUIBasedOnLogin() {
+            const t = translations[currentLang];
+            if (isLoggedIn) {
+                $loginNavItem.hide();
+                $logoutNavItem.show();
+                $("#loginText").html(`<i class="bi bi-person-circle"></i> ${currentUser.username} <span class="login-status-badge">${t.loginLoggedIn}</span>`);
+                $navLogoutLink.off("click").on("click", function(e) {
+                    e.preventDefault();
+                    logoutUser();
+                });
+            } else {
+                $loginNavItem.show();
+                $logoutNavItem.hide();
+                $("#loginText").html(`<i class="bi bi-box-arrow-in-right"></i> ${t.loginText}`);
+                $navLoginLink.off("click").on("click", function(e) {
+                    e.preventDefault();
+                    renderLoginPage();
+                });
+            }
+        }
+        
+        // ================ EVENT NAVIGASI ================
+        $navHomeLink.on("click", function(e) {
+            e.preventDefault();
+            renderHomePage();
+        });
+        
+        $logoHomeLink.on("click", function(e) {
+            e.preventDefault();
+            renderHomePage();
+        });
+        
+        $navCsLink.on("click", function(e) {
+            e.preventDefault();
+            renderCustomerService();
+        });
+        
+        $navAboutLink.on("click", function(e) {
+            e.preventDefault();
+            renderAboutPage();
+        });
+        
+        $sejarahLink.on("click", function(e) {
+            e.preventDefault();
+            renderSejarahPage();
+            $('.dropdown-toggle').dropdown('hide');
+        });
+        
+        $visiMisiLink.on("click", function(e) {
+            e.preventDefault();
+            renderVisiMisiPage();
+            $('.dropdown-toggle').dropdown('hide');
+        });
+        
+        $strukturLink.on("click", function(e) {
+            e.preventDefault();
+            renderStrukturPage();
+            $('.dropdown-toggle').dropdown('hide');
+        });
+        
+        $langId.on("click", function() {
+            currentLang = "id";
+            updateLanguage();
+            updateUIBasedOnLogin();
+        });
+        
+        $langEn.on("click", function() {
+            currentLang = "en";
+            updateLanguage();
+            updateUIBasedOnLogin();
+        });
+        
+        let savedSession = sessionStorage.getItem("lembagaLogged");
+        if (savedSession) {
+            try {
+                let sess = JSON.parse(savedSession);
+                if (sess.isLoggedIn) {
+                    isLoggedIn = true;
+                    currentUser = { username: sess.username, email: sess.email };
+                }
+            } catch (e) {}
+        }
+        
+        updateLanguage();
+        updateUIBasedOnLogin();
+        renderHomePage();
+    });
+</script>
+</body>
+</html>
